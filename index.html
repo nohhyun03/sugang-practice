@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헤헤</title>
+
+    <meta property="og:title" content="영남대학교 수강신청 연습">
+	<meta property="og:description" content="실제 수강신청 화면을 모방한 반응속도 연습 페이지">
+	<meta property="og:image" content="https://nohhyun03.github.io/sugang-practice/img/logo.png">
+	<meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <main id="main">
+            <!-- View 1: 수강신청 로그인 화면 -- 완성 -->
+            <div id="view-login" class="view active">
+                <div class="header">
+                    <ul class="link-box">
+						<li>학교홈페이지</li>
+						<li>ENG</li>
+					</ul>
+                </div>
+                <div class="page-title">
+                    <h3>2026학년도 2학기 본 수강신청</h3>
+                </div>
+                <div class="content">
+                    <div class="info-box">
+                        <div class="icon">
+                            <div class="circle">
+                                <img src="img/ico-bachelor-guide01.png" alt="/">
+                            </div>
+                        </div>
+                        <div class="text">
+                            <h6>수강신청 전체 일정</h6>
+							<p>2026년 8월 11일(화) ~ 08월 13일(목)</p>
+							<h6>수강신청 상세 일정 및 대상자</h6>
+							<ul>
+							    <li><span class="color-blue">8월 11일(화) 10:00~17:00</span> : 1,4,5,6학년</li>
+							    <li><span class="color-blue">8월 12일(수) 10:00~17:00</span> : 2,3학년</li>
+							    <li><span class="color-blue">8월 13일(목) 10:00~17:00</span> : 전체학년, 수강 미신청자</li>
+							</ul>
+                        </div>
+                    </div>
+                    <div class="login-box">
+                        <input class="userId" type="text" value="22212013" readonly>
+                        <input class="userPwd" type="password" value="22212013" readonly>
+                        <input class="loginBtn" type="submit" value="로그인">
+                    </div>
+                </div>
+                <div class="footer">
+                    <p>수강신청 연습 프로그램</p>
+                </div>
+            </div>
+            <!-- View 2: 영남대학교 수강신청 메인 접속 화면 -->
+            <div id="view-sugang" class="view bg-red">
+
+            </div>
+        </main>
+
+        <aside id="dashboard">
+            <h3>🎯 수강신청 연습 대시보드</h3>
+            <!-- 서버 시계 -->
+            <div class="card">
+                <div class="title">
+					<span>⏰ 서버 시계</span>
+					<span class="target-time">목표: <strong>10:00:00.000</strong></span>
+				</div>
+                <div class="clock-box">
+					<div class="timer">09:59:50.000</div>
+				</div>
+                <div class="btn-box">
+					<button type="button" id="btn-start-test" class="btn btn-start">🚀 START (09:59:50)</button>
+					<button type="button" id="btn-reset-test" class="btn btn-reset">🔄 초기화</button>
+				</div>
+            </div>
+
+            <!-- 연습 옵션 설정 -->
+			<div class="card">
+				<div class="title">
+					<span>⚙️ 연습 옵션 설정</span>
+				</div>
+				<div class="form-group">
+					<div class="option-item">
+						<label for="course-count">신청 과목 수 설정</label>
+						<select id="course-count" class="option-select">
+							<option value="3">3 과목 연습</option>
+							<option value="5" selected>5 과목 연습</option>
+							<option value="7">7 과목 연습</option>
+						</select>
+					</div>
+					<div class="option-item">
+						<label for="delay-mode">로그인 지연 모드</label>
+						<select id="delay-mode" class="option-select">
+							<option value="instant" selected>⚡ 즉시 전환 모드</option>
+							<option value="lag">⏳ 랜덤 서버 렉 모드 (0.5~3초)</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+            <!-- 로그 기록 -->
+            <div class="card">
+				<div class="title">
+					<span>📊 로그인 반응속도 기록 (ms)</span>
+				</div>
+				<ul id="history-list" class="history-list-box">
+					<li class="empty-history">START를 누른 뒤 10시 정각에 맞춰 로그인 버튼을 눌러보세요!</li>
+				</ul>
+			</div>
+        </aside>
+    </div>
+</body>
+</html>
