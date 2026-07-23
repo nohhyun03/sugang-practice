@@ -548,7 +548,7 @@ textarea {
     display: flex;
     align-items: center;
     overflow-x: auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 #view-sugang .search-box .univ-box {
     flex-shrink: 0;
@@ -574,7 +574,35 @@ textarea {
 
 
 /* 개설과목 영역 */
-
+#view-sugang .result-box {
+    height: 145px;
+    display: flex;
+    flex-direction: column;
+}
+#view-sugang .result-box h4 {
+    position: relative;
+    padding: 0 0 26px 20px;
+    font-size: 1.625rem;
+    line-height: 1.625rem;
+    color: #000;
+    font-weight: 400;
+}
+#view-sugang .result-box h4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 28px;
+    background: #0d3f7a;
+}
+#view-sugang .result-box p {
+    flex: 1;
+    display: block;
+    padding: 36px;
+    background: #f2f5f9;
+    color: #0d3f7a;
+}
 
 
 
