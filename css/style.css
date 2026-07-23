@@ -638,6 +638,56 @@ textarea {
 }
 
 
+/* 수강신청&수강꾸러미 영역 */
+#view-sugang .sugang-box {
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    margin-bottom: 40px;
+}
+#view-sugang .sugang-box .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-right: 100px;
+}
+#view-sugang .top h4 {
+    position: relative;
+    padding: 0 0 26px 20px;
+    font-size: 1.625rem;
+    line-height: 1.625rem;
+    color: #000;
+    font-weight: 400;
+}
+#view-sugang .top h4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 28px;
+    background: #0d3f7a;
+}
+#view-sugang .top ul {
+    display: flex;
+}
+#view-sugang .top li {
+    padding: 5px 10px 5px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .color-red {
     color: #e4064f !important;
