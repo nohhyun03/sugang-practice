@@ -578,6 +578,7 @@ textarea {
     height: 145px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 130px;
 }
 #view-sugang .result-box h4 {
     position: relative;
@@ -604,6 +605,37 @@ textarea {
     color: #0d3f7a;
 }
 
+
+
+/* 신청 영역 */
+#view-sugang .add-box {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+#view-sugang .add-box .num-box {
+    flex-shrink: 0;
+    display: flex;
+    gap: 10px;
+}
+#view-sugang .num-box .tit {
+    margin-right : 10px;
+}
+#view-sugang .num-box input {
+    width: 68px;
+    height: 28px;
+    border: 1px solid #ccc;
+}
+#view-sugang .num-box .submit {
+    width: 100px;
+    height: 28px;
+	border: 0;
+	background: #0d3f7a;
+	color: #fff;
+	cursor: pointer;
+}
 
 
 
