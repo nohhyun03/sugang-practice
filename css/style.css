@@ -442,9 +442,9 @@ textarea {
     height : 40px;
     padding: 0 20px;
     background: rgb(17, 36, 76);
-    position: sticky;
+    /* position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 100; */
 }
 #view-sugang .title {
 	color: rgb(255, 255, 255);
@@ -489,7 +489,7 @@ textarea {
 }
 #view-sugang .main-box {
     flex: 1;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 /* 좌측 학생 정보 영역 */
@@ -542,21 +542,39 @@ textarea {
 
 
 /* 오른쪽 메인 영역 */
+/* 조회영역 */
 #view-sugang .search-box {
-    height: 34px;
+    height: 40px;
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow-x: auto;
+    margin-bottom: 20px;
+}
+#view-sugang .search-box .univ-box {
+    flex-shrink: 0;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+#view-sugang .univ-box .tit {
+    margin-right : 5px;
+}
+#view-sugang .univ-box .selec {
+    height: 29px;
+    border-radius: 2px;
+}
+#view-sugang .univ-box .submit {
+    width: 100px;
+    height: 29px;
+	border: 0;
+	background: #0d3f7a;
+	color: #fff;
+	cursor: pointer;
 }
 
-#view-sugang .search-box .univ-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-width: 100px;
-}
+
+/* 개설과목 영역 */
+
 
 
 
