@@ -11,8 +11,7 @@ body {
 	font-family: "Noto Sans KR", sans-serif
 }
 
-ul,
-ol {
+ul, ol {
   list-style: none;
 }
 
@@ -26,12 +25,10 @@ img {
   max-width: 100%;
 }
 
-button,
-input,
-textarea {
+button, input, textarea {
   font: inherit;
 }
-/* 여기까지가 기본 세팅 */
+/* 기본 세팅 */
 
 
 
@@ -61,8 +58,6 @@ textarea {
 }
 
 
-
-
 /* SPA영역 */
 .view {
     display: none;
@@ -71,8 +66,8 @@ textarea {
 }
 .view.active {
     display: block;
+    overflow-x : hidden;
 }
-
 
 
 /* 헤더 영역 */
@@ -489,6 +484,7 @@ textarea {
 }
 #view-sugang .main-box {
     flex: 1;
+    min-width: 0;
     padding: 10px 20px;
 }
 
@@ -613,7 +609,9 @@ textarea {
     display: flex;
     align-items: center;
     overflow-x: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    background: #f2f5f9;
+    padding-left: 20px;
 }
 #view-sugang .add-box .num-box {
     flex-shrink: 0;
@@ -640,12 +638,13 @@ textarea {
 
 /* 수강신청&수강꾸러미 영역 */
 #view-sugang .sugang-box {
-    height: 430px;
+    height: 450px;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
     margin-bottom: 40px;
 }
+
+/* 테이블 상단의 텍스트 영역 */
 #view-sugang .sugang-box .top {
     display: flex;
     justify-content: space-between;
@@ -675,6 +674,76 @@ textarea {
 #view-sugang .top li {
     padding: 5px 10px 5px 0;
 }
+
+
+
+
+/* 테이블 영역 */
+#view-sugang .sugang-box .table-wrap {
+    overflow: auto;
+}
+#view-sugang .sugang-box table {
+    border-top: 2px solid #888;
+    border-spacing: 0;
+    border-collapse: separate;
+    text-align: center;
+    table-layout: fixed;
+    min-width: 800px;
+}
+
+/* 테이블 헤더 */
+#view-sugang .sugang-box table th {
+    font-weight: 400;
+    padding: 2px;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    background-color: #f1f4f7;
+    border-right: 1px solid #eaeaea;
+    word-wrap: break-word;
+}
+#view-sugang thead:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #888;
+}
+
+
+/* 테이블 데이터 */
+#view-sugang .sugang-box table td {
+    font-weight: 400;
+    padding: 2px;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    border-right: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    word-wrap: break-word;
+}
+/* 특정 셀을 위한 스타일 */
+.plus {
+    background: url(../img/bg-plus.jpeg) no-repeat right center / 9px;
+    text-decoration: underline;
+    padding: 0 14px 0 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #0d3f7a;
+}
+.minus {
+    background: url(../img/bg-minus.png) no-repeat right center / 9px;
+    text-decoration: underline;
+    padding: 0 14px 0 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #0d3f7a;
+}
+.td-left {
+    text-align: left !important;
+}
+
 
 
 

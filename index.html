@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>헤헤</title>
+    <title>수강신청 연습 페이지</title>
 
     <meta property="og:title" content="영남대학교 수강신청 연습">
 	<meta property="og:description" content="실제 수강신청 화면을 모방한 반응속도 연습 페이지">
@@ -67,8 +67,8 @@
 					</ul>
                 </div>
                 <div class="content">
-                    <!-- 왼쪽 학생 정보 영역 -->
-                    <div class="std-box bg-yellow">
+                    <!-- 왼쪽 학생 영역 -->
+                    <div class="std-box">
                         <ul>
                             <li>
                                 <p>소속</p>
@@ -104,12 +104,11 @@
                             </li>
                         </ul>
                     </div>  
-
                     <!-- 오른쪽 메인 영역 -->
-                    <div class="main-box bg-red">
+                    <div class="main-box">
                         <!-- 조회 영역 -->
-                        <div class="search-box bg-yellow">
-                            <ul class="univ-box bg-red">
+                        <div class="search-box">
+                            <ul class="univ-box">
                                 <li>
                                     <span class="tit">대학</span>
                                     <select class="selec" style="width: 110px">
@@ -139,16 +138,14 @@
                                 </li>
                             </ul>
                         </div>
-
                         <!-- 검색결과 영역 -->
-                        <div class="result-box bg-yellow">
+                        <div class="result-box">
                             <h4>개설과목</h4>
 							<p>검색조건을 선택 후 조회버튼을 클릭하세요!</p>
                         </div>
-
                         <!-- 신청 영역 -->
-                        <div class="add-box bg-yellow">
-                            <ul class="num-box bg-red">
+                        <div class="add-box">
+                            <ul class="num-box">
                                 <li>
                                     <span class="tit">수강번호</span>
                                     <input type="text">
@@ -162,9 +159,8 @@
                                 </li>
                             </ul>
                         </div>
-
                         <!-- 수강신청 영역 -->
-                        <div class="sugang-box bg-yellow">
+                        <div class="sugang-box">
                             <div class="top">
                                 <h4>수강신청내역</h4>
                                 <ul>
@@ -175,15 +171,259 @@
                                     <li>재이수:0</li>
                                 </ul>
                             </div>
+                            <div class="table-wrap">
+                                <table>
+                                    <colgroup>
+                                        <col style="width: 7%;">
+                                        <col style="width: 7%;">
+                                        <col style="width: 9%;">
+                                        <col style="width: 19%;">
+                                        <col style="width: 4%;">
+                                        <col style="width: 7%">
+                                        <col style="width: 15%">
+                                        <col style="width: 6%">
+                                        <col style="width: 7%">
+                                        <col style="width: 4%">
+                                        <col style="width: 5%">
+                                        <col style="width: 10%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">삭제</th>
+                                            <th scope="col">수강번호</th>
+                                            <th scope="col">이수구분</th>
+                                            <th scope="col">교과목명</th>
+                                            <th scope="col">학점</th>
+                                            <th scope="col">담당교수</th>
+                                            <th scope="col">강의시간</th>
+                                            <th scope="col">수업방법</th>
+                                            <th scope="col">인정<br>과목<br>(P/F)</th>
+                                            <th scope="col">자유선택교양인정</th>
+                                            <th scope="col">비고</th>
+                                            <th scope="col">기이수년도학기</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a class="minus">삭제</a></td>
+                                            <td>1192</td>
+                                            <td>전공핵심</td>
+                                            <td class="td-left">데이터베이스</td>
+                                            <td>3</td>
+                                            <td>조행래</td>
+                                            <td>월09:00-10:15 수10:30-11:45</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a class="minus">삭제</a></td>
+                                            <td>1200</td>
+                                            <td>전공선택</td>
+                                            <td class="td-left">데이터분석과머신러닝</td>
+                                            <td>3</td>
+                                            <td>박창현</td>
+                                            <td>수15:00-16:15 금15:00-16:15</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a class="minus">삭제</a></td>
+                                            <td>1195</td>
+                                            <td>전공핵심</td>
+                                            <td class="td-left">소프트웨어공학</td>
+                                            <td>3</td>
+                                            <td>주승훈</td>
+                                            <td>금18:00-20:25</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a class="minus">삭제</a></td>
+                                            <td>1083</td>
+                                            <td>전공선택</td>
+                                            <td class="td-left">웹프레임워크</td>
+                                            <td>2</td>
+                                            <td>조행래</td>
+                                            <td>목18:00-19:35</td>
+                                            <td>블렌디드</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a class="minus">삭제</a></td>
+                                            <td>1197</td>
+                                            <td>전공핵심</td>
+                                            <td class="td-left">컴퓨터구조</td>
+                                            <td>3</td>
+                                            <td>곽종욱</td>
+                                            <td>수13:30-14:45 금13:30-14:45</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a class="minus">삭제</a></td>
+                                            <td>1203</td>
+                                            <td>전공선택</td>
+                                            <td class="td-left">컴퓨터비전</td>
+                                            <td>3</td>
+                                            <td>정호열</td>
+                                            <td>화15:00-16:15 목15:00-16:15</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+					                </tbody>
+                                </table>
+                            </div>
+                            
                         </div>
-
                         <!-- 수강 꾸러미 영역 -->
-                        <div class="sugang-box bg-yellow">
+                        <div class="sugang-box">
                             <div class="top">
                                 <h4>수강꾸러미신청내역</h4>
                             </div>
+                            <div class="table-wrap">
+                                <table>
+                                    <colgroup>
+                                        <col style="width: 7%;">
+                                        <col style="width: 7%;">
+                                        <col style="width: 9%;">
+                                        <col style="width: 19%;">
+                                        <col style="width: 4%;">
+                                        <col style="width: 7%">
+                                        <col style="width: 15%">
+                                        <col style="width: 6%">
+                                        <col style="width: 7%">
+                                        <col style="width: 4%">
+                                        <col style="width: 5%">
+                                        <col style="width: 10%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">신청</th>
+                                            <th scope="col">수강번호</th>
+                                            <th scope="col">이수구분</th>
+                                            <th scope="col">교과목명</th>
+                                            <th scope="col">학점</th>
+                                            <th scope="col">담당교수</th>
+                                            <th scope="col">강의시간</th>
+                                            <th scope="col">수업방법</th>
+                                            <th scope="col">인정<br>과목<br>(P/F)</th>
+                                            <th scope="col">자유선택교양인정</th>
+                                            <th scope="col">비고</th>
+                                            <th scope="col">기이수년도학기</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a class="plus">신청</a></td>
+                                            <td>1192</td>
+                                            <td>전공핵심</td>
+                                            <td class="td-left">데이터베이스</td>
+                                            <td>3</td>
+                                            <td>조행래</td>
+                                            <td>월09:00-10:15 수10:30-11:45</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><a class="plus">신청</a></td>
+                                            <td>1200</td>
+                                            <td>전공선택</td>
+                                            <td class="td-left">데이터분석과머신러닝</td>
+                                            <td>3</td>
+                                            <td>박창현</td>
+                                            <td>수15:00-16:15 금15:00-16:15</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><a class="plus">신청</a></td>
+                                            <td>1195</td>
+                                            <td>전공핵심</td>
+                                            <td class="td-left">소프트웨어공학</td>
+                                            <td>3</td>
+                                            <td>주승훈</td>
+                                            <td>금18:00-20:25</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><a class="plus">신청</a></td>
+                                            <td>1083</td>
+                                            <td>전공선택</td>
+                                            <td class="td-left">웹프레임워크</td>
+                                            <td>2</td>
+                                            <td>조행래</td>
+                                            <td>목18:00-19:35</td>
+                                            <td>블렌디드</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><a class="plus">신청</a></td>
+                                            <td>1197</td>
+                                            <td>전공핵심</td>
+                                            <td class="td-left">컴퓨터구조</td>
+                                            <td>3</td>
+                                            <td>곽종욱</td>
+                                            <td>수13:30-14:45 금13:30-14:45</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><a class="plus">신청</a></td>
+                                            <td>1203</td>
+                                            <td>전공선택</td>
+                                            <td class="td-left">컴퓨터비전</td>
+                                            <td>3</td>
+                                            <td>정호열</td>
+                                            <td>화15:00-16:15 목15:00-16:15</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>N</td>
+                                            <td class="td-left">스마트출결대상강좌</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+					                </tbody>
+                                </table>
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
