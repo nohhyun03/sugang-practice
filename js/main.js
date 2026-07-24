@@ -7,13 +7,13 @@ const TARGET_SIM_TIME_MS = 36000000;
 
 // 7개 과목 프리셋 데이터
 const COURSES_DATA = [
-    { id: '1192', type: '전공핵심', name: '데이터베이스', credit: '3', professor: '조행래', time: '월09:00-10:15 수10:30-11:45', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '1200', type: '전공선택', name: '데이터분석과머신러닝', credit: '3', professor: '박창현', time: '수15:00-16:15 금15:00-16:15', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '1195', type: '전공핵심', name: '소프트웨어공학', credit: '3', professor: '주승훈', time: '금18:00-20:25', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '1083', type: '전공선택', name: '웹프레임워크', credit: '2', professor: '조행래', time: '목18:00-19:35', method: '블렌디드', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '1197', type: '전공핵심', name: '컴퓨터구조', credit: '3', professor: '곽종욱', time: '수13:30-14:45 금13:30-14:45', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '1203', type: '전공선택', name: '컴퓨터비전', credit: '3', professor: '정호열', time: '화15:00-16:15 목15:00-16:15', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '1204', type: '전공선택', name: '인공지능', credit: '3', professor: '김철수', time: '월13:30-14:45 수15:00-16:15', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' }
+    { id: '1111', type: '전공핵심', name: '데이터베이스', credit: '3', professor: '교수A', time: '월09:00-10:15 수10:30-11:45', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '2222', type: '전공선택', name: '데이터분석과머신러닝', credit: '3', professor: '교수B', time: '수15:00-16:15 금15:00-16:15', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '3333', type: '전공핵심', name: '소프트웨어공학', credit: '3', professor: '교수C', time: '금18:00-20:25', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '4444', type: '전공핵심', name: '컴퓨터구조', credit: '3', professor: '교수D', time: '수13:30-14:45 금13:30-14:45', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '5555', type: '전공선택', name: '컴퓨터비전', credit: '3', professor: '교수E', time: '화15:00-16:15 목15:00-16:15', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '6666', type: '전공선택', name: '웹프레임워크', credit: '2', professor: '교수F', time: '목18:00-19:35', method: '블렌디드', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '7777', type: '전공선택', name: '클라우드컴퓨팅', credit: '3', professor: '교수G', time: '금10:00-11:50', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' }
 ];
 
 let isTimerRunning = false;
@@ -317,7 +317,7 @@ function renderHistory() {
         const li = document.createElement('li');
         li.className = item.isSuccess ? 'history-item success' : 'history-item fail';
 
-        const diffText = item.isSuccess ? `+${item.diffMs} ms` : `${item.diffMs} ms (조기클릭)`;
+        const diffText = item.isSuccess ? `+${item.diffMs} ms` : `${item.diffMs} ms`;
 
         li.innerHTML = `
             <span class="hist-index">#${historyRecords.length - index}</span>
