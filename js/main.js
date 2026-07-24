@@ -53,13 +53,14 @@ const resLoginDiff = document.getElementById('res-login-diff');
 const resSugangDuration = document.getElementById('res-sugang-duration');
 const btnRestartFromResult = document.getElementById('btn-restart-from-result');
 
-// 시간을 HH:MM:SS.mmm 포맷으로 변환
+// 시간을 HH:MM:SS.mmm 포맷으로 변환 (1ms 오차 방지를 위해 Math.round 적용)
 function formatTime(ms) {
-    const totalSeconds = Math.floor(ms / 1000);
+    const roundedMs = Math.round(ms);
+    const totalSeconds = Math.floor(roundedMs / 1000);
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
-    const milliseconds = Math.floor(ms % 1000);
+    const milliseconds = roundedMs % 1000;
 
     const hh = String(hours).padStart(2, '0');
     const mm = String(minutes).padStart(2, '0');
@@ -193,6 +194,13 @@ function handleCourseApply(courseId) {
         const finishSimulatedMs = START_SIM_TIME_MS + (finishRealTime - startRealTime - pausedDuration);
         const totalDiffMs = Math.round(finishSimulatedMs - TARGET_SIM_TIME_MS);
         const sugangDurationMs = Math.round(finishSimulatedMs - loginSimulatedMs);
+
+        // 대시보드 서버 시계(.timer)도 최종 달성 시각으로 업데이트
+        if (timerDisplay) {
+            timerDisplay.textContent = formatTime(finishSimulatedMs);
+            timerDisplay.classList.add('time-passed');
+            timerDisplay.classList.remove('time-approaching');
+        }
 
         // 결과 화면 UI에 세부 지표 데이터 바인딩
         if (resTotalDiff) resTotalDiff.textContent = `${totalDiffMs.toLocaleString()} ms`;
