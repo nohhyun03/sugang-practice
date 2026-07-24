@@ -540,7 +540,7 @@ button, input, textarea {
 /* 오른쪽 메인 영역 */
 /* 조회영역 */
 #view-sugang .search-box {
-    height: 40px;
+    height: 44px;
     display: flex;
     align-items: center;
     overflow-x: auto;
@@ -722,6 +722,7 @@ button, input, textarea {
     border-right: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
     word-wrap: break-word;
+    height: 30px;
 }
 /* 특정 셀을 위한 스타일 */
 .plus {
