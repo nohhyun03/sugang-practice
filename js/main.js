@@ -38,6 +38,7 @@ const selectDelayMode = document.getElementById('delay-mode');
 const historyList = document.getElementById('history-list');
 
 const loginView = document.getElementById('view-login');
+const viewLag = document.getElementById('view-lag');
 const sugangView = document.getElementById('view-sugang');
 const loginButton = document.querySelector('.loginBtn');
 const logoutButton = document.querySelector('.logoutBtn');
@@ -227,17 +228,22 @@ function resetTest() {
     switchView('login');
 }
 
-// SPA 뷰 전환 (로그인 ↔ 수강신청)
+// SPA 뷰 전환 (로그인 ↔ 지연대기 ↔ 수강신청)
 function switchView(targetView) {
     const mainContainer = document.getElementById('main');
+
+    if (loginView) loginView.classList.remove('active');
+    if (viewLag) viewLag.classList.remove('active');
+    if (sugangView) sugangView.classList.remove('active');
+
     if (targetView === 'sugang') {
-        if (loginView) loginView.classList.remove('active');
         if (sugangView) sugangView.classList.add('active');
+    } else if (targetView === 'lag') {
+        if (viewLag) viewLag.classList.add('active');
     } else {
-        if (sugangView) sugangView.classList.remove('active');
         if (loginView) loginView.classList.add('active');
     }
-    // 페이지 뷰가 전환될 때 항상 메인 영역 스크롤을 최상단으로 리셋
+
     if (mainContainer) mainContainer.scrollTop = 0;
 }
 
@@ -265,17 +271,19 @@ function handleLoginSubmit(event) {
         return;
     }
 
-    // 10시 이후 클릭 (성공 케이스 - 성공시 기록은 2페이지 완수 시점으로 보류)
+    // 10시 이후 클릭 (성공 케이스)
     const delayMode = selectDelayMode ? selectDelayMode.value : 'instant';
 
     if (delayMode === 'lag') {
-        // 지연 모드: 타이머 일시정지 후 임의 지연(0.5초 ~ 2.5초) 뒤 보정 없이 재개
+        // 지연 모드: 지연 대기 화면(#view-lag)으로 전환 및 타이머 일시정지 후 임의 지연(0.8초 ~ 2.5초) 뒤 보정 없이 재개
         isProcessingLag = true;
         isTimerRunning = false;
         if (animationFrameId) cancelAnimationFrame(animationFrameId);
         pauseStartTime = performance.now();
 
-        const randomLagMs = Math.floor(Math.random() * 2000) + 500;
+        switchView('lag');
+
+        const randomLagMs = Math.floor(Math.random() * 2000) + 2000;
 
         setTimeout(() => {
             const lagElapsed = performance.now() - pauseStartTime;

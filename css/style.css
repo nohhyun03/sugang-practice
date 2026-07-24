@@ -759,4 +759,54 @@ button, input, textarea {
 }
 
 
+/* ==================== SPA View 3: 서버 접속 지연 화면 ==================== */
+#view-lag .lag-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f2f5f9;
+    padding: 20px;
+}
+#view-lag .lag-info-box {
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    max-width: 480px;
+    width: 100%;
+}
+#view-lag .lag-info-box h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #0d3f7a;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+#view-lag .lag-info-box p {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* 로딩 스피너 애니메이션 */
+.spinner {
+    margin: 0 auto;
+    width: 54px;
+    height: 54px;
+    border: 5px solid #e0e0e0;
+    border-top: 5px solid #0d3f7a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
 
