@@ -146,10 +146,6 @@ function handleCourseApply(courseId) {
     alert("저장되었습니다.");
     appliedCourses.push(courseId);
 
-    // 새로고침 느낌 연출: 스크롤 최상단으로 즉시 이동
-    const mainContainer = document.getElementById('main');
-    if (mainContainer) mainContainer.scrollTop = 0;
-
     // 상단 수강신청내역 테이블에 행 추가
     const course = COURSES_DATA.find(c => c.id === courseId);
     const sugangBoxes = document.querySelectorAll('#view-sugang .sugang-box');
