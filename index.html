@@ -264,6 +264,35 @@
                     </div>
                 </div>
             </div>
+            <!-- View 4: 수강신청 측정 결과 및 페이즈 분석 화면 -->
+            <div id="view-result" class="view">
+                <div class="result-content">
+                    <div class="result-card">
+                        <h3>📊 수강신청 측정 결과 분석</h3>
+                        <p class="result-subtext">구간별 소요시간을 분석하여 부족한 구간을 보완해 보세요.</p>
+
+                        <div class="result-stats-box">
+                            <div class="stat-item highlight-total">
+                                <span class="stat-label">🏆 총 소요시간 (최종 기록)</span>
+                                <span id="res-total-diff" class="stat-value highlight">0 ms</span>
+                            </div>
+                            
+                            <div class="stat-divider"></div>
+
+                            <div class="stat-item">
+                                <span class="stat-label">🎯 Phase 1. 로그인 반응속도</span>
+                                <span id="res-login-diff" class="stat-value">0 ms</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">⚡ Phase 2. 과목 신청 소요시간</span>
+                                <span id="res-sugang-duration" class="stat-value">0.000 초 (0 ms)</span>
+                            </div>
+                        </div>
+
+                        <button type="button" id="btn-restart-from-result" class="btn-result-restart">🔄 다시 연습하기</button>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <aside id="dashboard">

@@ -7,13 +7,13 @@ const TARGET_SIM_TIME_MS = 36000000;
 
 // 7개 과목 프리셋 데이터
 const COURSES_DATA = [
-    { id: '1111', type: '전공핵심', name: '데이터베이스', credit: '3', professor: '교수A', time: '월09:00-10:15 수10:30-11:45', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '2222', type: '전공선택', name: '데이터분석과머신러닝', credit: '3', professor: '교수B', time: '수15:00-16:15 금15:00-16:15', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '3333', type: '전공핵심', name: '소프트웨어공학', credit: '3', professor: '교수C', time: '금18:00-20:25', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '4444', type: '전공핵심', name: '컴퓨터구조', credit: '3', professor: '교수D', time: '수13:30-14:45 금13:30-14:45', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '5555', type: '전공선택', name: '컴퓨터비전', credit: '3', professor: '교수E', time: '화15:00-16:15 목15:00-16:15', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '6666', type: '전공선택', name: '웹프레임워크', credit: '2', professor: '교수F', time: '목18:00-19:35', method: '블렌디드', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
-    { id: '7777', type: '전공선택', name: '클라우드컴퓨팅', credit: '3', professor: '교수G', time: '금10:00-11:50', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' }
+    { id: '1111', type: '전공핵심', name: '데이터베이스', credit: '3', professor: '교수A', time: '월00:00-23:59', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '2222', type: '전공선택', name: '데이터분석과머신러닝', credit: '3', professor: '교수B', time: '화00:00-23:59', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '3333', type: '전공핵심', name: '소프트웨어공학', credit: '3', professor: '교수C', time: '수00:00-23:59', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '4444', type: '전공핵심', name: '컴퓨터구조', credit: '3', professor: '교수D', time: '목00:00-23:59', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '5555', type: '전공선택', name: '컴퓨터비전', credit: '3', professor: '교수E', time: '금00:00-23:59', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '6666', type: '전공선택', name: '웹프레임워크', credit: '2', professor: '교수F', time: '토00:00-23:59', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' },
+    { id: '7777', type: '전공선택', name: '클라우드컴퓨팅', credit: '3', professor: '교수G', time: '일00:00-23:59', method: '', passFail: '', gubun: 'N', note: '스마트출결대상강좌', prev: '' }
 ];
 
 let isTimerRunning = false;
@@ -25,7 +25,9 @@ let currentSimulatedMs = START_SIM_TIME_MS;
 let historyRecords = [];
 let isProcessingLag = false;
 
-// 2페이지 수강신청 관리 상태
+// 2페이즈 측정 및 2페이지 수강신청 상태
+let loginSimulatedMs = 0;
+let loginDiffMs = 0;
 let appliedCourses = [];
 let targetCourseCount = 5;
 
@@ -40,8 +42,16 @@ const historyList = document.getElementById('history-list');
 const loginView = document.getElementById('view-login');
 const viewLag = document.getElementById('view-lag');
 const sugangView = document.getElementById('view-sugang');
+const viewResult = document.getElementById('view-result');
+
 const loginButton = document.querySelector('.loginBtn');
 const logoutButton = document.querySelector('.logoutBtn');
+
+// 결과 화면 DOM 요절
+const resTotalDiff = document.getElementById('res-total-diff');
+const resLoginDiff = document.getElementById('res-login-diff');
+const resSugangDuration = document.getElementById('res-sugang-duration');
+const btnRestartFromResult = document.getElementById('btn-restart-from-result');
 
 // 시간을 HH:MM:SS.mmm 포맷으로 변환
 function formatTime(ms) {
@@ -178,13 +188,23 @@ function handleCourseApply(courseId) {
         isTimerRunning = false;
         if (animationFrameId) cancelAnimationFrame(animationFrameId);
 
-        // 최종 기록 계산 및 저장
+        // 최종 소요시간 및 2페이즈 구간 소요시간 계산
         const finishRealTime = performance.now();
         const finishSimulatedMs = START_SIM_TIME_MS + (finishRealTime - startRealTime - pausedDuration);
-        const diffMs = Math.round(finishSimulatedMs - TARGET_SIM_TIME_MS);
+        const totalDiffMs = Math.round(finishSimulatedMs - TARGET_SIM_TIME_MS);
+        const sugangDurationMs = Math.round(finishSimulatedMs - loginSimulatedMs);
 
-        addHistoryRecord(finishSimulatedMs, diffMs, true);
-        alert("🎉 축하합니다! 모든 과목 수강신청을 완료했습니다.");
+        // 결과 화면 UI에 세부 지표 데이터 바인딩
+        if (resTotalDiff) resTotalDiff.textContent = `${totalDiffMs.toLocaleString()} ms`;
+        if (resLoginDiff) resLoginDiff.textContent = `${loginDiffMs.toLocaleString()} ms`;
+        if (resSugangDuration) {
+            const sugangSec = (sugangDurationMs / 1000).toFixed(3);
+            resSugangDuration.textContent = `${sugangSec} 초 (${sugangDurationMs.toLocaleString()} ms)`;
+        }
+
+        // 히스토리에 성공 기록 추가 및 결과 화면으로 전환
+        addHistoryRecord(finishSimulatedMs, totalDiffMs, true);
+        switchView('result');
     }
 }
 
@@ -195,6 +215,8 @@ function startTest() {
     pausedDuration = 0;
     currentSimulatedMs = START_SIM_TIME_MS;
     isProcessingLag = false;
+    loginSimulatedMs = 0;
+    loginDiffMs = 0;
 
     if (btnStartTest) btnStartTest.disabled = true;
     if (timerDisplay) {
@@ -214,6 +236,8 @@ function resetTest() {
     isTimerRunning = false;
     isProcessingLag = false;
     pausedDuration = 0;
+    loginSimulatedMs = 0;
+    loginDiffMs = 0;
 
     if (animationFrameId) cancelAnimationFrame(animationFrameId);
     currentSimulatedMs = START_SIM_TIME_MS;
@@ -228,18 +252,21 @@ function resetTest() {
     switchView('login');
 }
 
-// SPA 뷰 전환 (로그인 ↔ 지연대기 ↔ 수강신청)
+// SPA 뷰 전환 (로그인 ↔ 지연대기 ↔ 수강신청 ↔ 결과분석)
 function switchView(targetView) {
     const mainContainer = document.getElementById('main');
 
     if (loginView) loginView.classList.remove('active');
     if (viewLag) viewLag.classList.remove('active');
     if (sugangView) sugangView.classList.remove('active');
+    if (viewResult) viewResult.classList.remove('active');
 
     if (targetView === 'sugang') {
         if (sugangView) sugangView.classList.add('active');
     } else if (targetView === 'lag') {
         if (viewLag) viewLag.classList.add('active');
+    } else if (targetView === 'result') {
+        if (viewResult) viewResult.classList.add('active');
     } else {
         if (loginView) loginView.classList.add('active');
     }
@@ -271,11 +298,14 @@ function handleLoginSubmit(event) {
         return;
     }
 
-    // 10시 이후 클릭 (성공 케이스)
+    // 10시 이후 클릭 (성공 케이스: 1페이즈 로그인 시각 보관)
+    loginSimulatedMs = clickSimulatedMs;
+    loginDiffMs = diffMs;
+
     const delayMode = selectDelayMode ? selectDelayMode.value : 'instant';
 
     if (delayMode === 'lag') {
-        // 지연 모드: 지연 대기 화면(#view-lag)으로 전환 및 타이머 일시정지 후 임의 지연(0.8초 ~ 2.5초) 뒤 보정 없이 재개
+        // 지연 모드: 지연 대기 화면(#view-lag)으로 전환 및 타이머 일시정지 후 임의 지연(2초 ~ 4초) 뒤 보정 없이 재개
         isProcessingLag = true;
         isTimerRunning = false;
         if (animationFrameId) cancelAnimationFrame(animationFrameId);
@@ -325,7 +355,7 @@ function renderHistory() {
         const li = document.createElement('li');
         li.className = item.isSuccess ? 'history-item success' : 'history-item fail';
 
-        const diffText = item.isSuccess ? `+${item.diffMs} ms` : `${item.diffMs} ms`;
+        const diffText = `${item.diffMs} ms`;
 
         li.innerHTML = `
             <span class="hist-index">#${historyRecords.length - index}</span>
@@ -344,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnStartTest) btnStartTest.addEventListener('click', startTest);
     if (btnResetTest) btnResetTest.addEventListener('click', resetTest);
+    if (btnRestartFromResult) btnRestartFromResult.addEventListener('click', resetTest);
     if (selectCourseCount) selectCourseCount.addEventListener('change', initSugangTables);
 
     if (loginButton) loginButton.addEventListener('click', handleLoginSubmit);

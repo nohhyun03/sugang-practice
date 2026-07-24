@@ -808,5 +808,92 @@ button, input, textarea {
 }
 
 
+/* ==================== SPA View 4: 결과 분석 화면 ==================== */
+#view-result .result-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f2f5f9;
+    padding: 20px;
+}
+#view-result .result-card {
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 14px;
+    padding: 44px 36px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    max-width: 520px;
+    width: 100%;
+}
+#view-result .result-card h3 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #0d3f7a;
+    margin-bottom: 8px;
+}
+#view-result .result-subtext {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 28px;
+}
+#view-result .result-stats-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+#view-result .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+#view-result .stat-label {
+    color: #475569;
+    font-weight: 500;
+}
+#view-result .stat-value {
+    font-family: monospace, 'Courier New', sans-serif;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1rem;
+}
+#view-result .highlight-total {
+    padding-bottom: 6px;
+}
+#view-result .stat-value.highlight {
+    font-size: 1.35rem;
+    color: #0d3f7a;
+}
+#view-result .stat-divider {
+    height: 1px;
+    background-color: #cbd5e1;
+    margin: 2px 0;
+}
+#view-result .btn-result-restart {
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-radius: 8px;
+    background: #0d3f7a;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+#view-result .btn-result-restart:hover {
+    background: #0a3160;
+    transform: translateY(-1px);
+}
+
+
+
 
 
