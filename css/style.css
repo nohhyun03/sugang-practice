@@ -642,7 +642,7 @@ button, input, textarea {
 
 /* 수강신청&수강꾸러미 영역 */
 #view-sugang .sugang-box {
-    height: 450px;
+    height: 280px;
     display: flex;
     flex-direction: column;
     margin-bottom: 40px;

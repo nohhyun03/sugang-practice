@@ -229,6 +229,7 @@ function resetTest() {
 
 // SPA 뷰 전환 (로그인 ↔ 수강신청)
 function switchView(targetView) {
+    const mainContainer = document.getElementById('main');
     if (targetView === 'sugang') {
         if (loginView) loginView.classList.remove('active');
         if (sugangView) sugangView.classList.add('active');
@@ -236,6 +237,8 @@ function switchView(targetView) {
         if (sugangView) sugangView.classList.remove('active');
         if (loginView) loginView.classList.add('active');
     }
+    // 페이지 뷰가 전환될 때 항상 메인 영역 스크롤을 최상단으로 리셋
+    if (mainContainer) mainContainer.scrollTop = 0;
 }
 
 // 로그인 버튼 클릭 처리
