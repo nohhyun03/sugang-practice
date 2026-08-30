@@ -220,8 +220,8 @@ function handleCourseApply(courseId) {
 function startTest() {
     if (window.goatcounter && typeof window.goatcounter.count === 'function') {
         window.goatcounter.count({
-            path: 'start-test-click',
-            title: '테스트 시작 버튼 클릭',
+            path: 'sugang-practice-start-test-click',
+            title: '[수강신청 연습] 테스트 시작 버튼 클릭',
             event: true
         });
     }
