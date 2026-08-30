@@ -218,6 +218,14 @@ function handleCourseApply(courseId) {
 
 // 테스트 시작
 function startTest() {
+    if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+        window.goatcounter.count({
+            path: 'start-test-click',
+            title: '테스트 시작 버튼 클릭',
+            event: true
+        });
+    }
+
     isTimerRunning = true;
     startRealTime = performance.now();
     pausedDuration = 0;
